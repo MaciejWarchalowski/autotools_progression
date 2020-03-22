@@ -10,8 +10,10 @@ dist: $(distdir).tar.gz
 
 $(distdir).tar.gz: $(distdir)
 	tar chof - $(distdir) | gzip -9 -c > $@
+	rm -rf $(distdir)
 
 $(distdir):
+	rm -rf $(distdir)
 	mkdir -p $(distdir)/src
 	cp Makefile $(distdir)
 	cp src/Makefile $(distdir)/src
