@@ -6,4 +6,8 @@ jupiter: main.c
 clean:
 	-rm jupiter
 
-.PHONY: all clean
+check: all
+	./jupiter | grep "Hello from .*jupiter!"
+	@echo "*** ALL TESTS PASSED ***"
+
+.PHONY: all clean check

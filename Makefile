@@ -3,7 +3,7 @@ version = 1.0
 tarname = $(package)
 distdir = $(tarname)-$(version)
 
-all clean jupiter:
+all clean check jupiter:
 	cd src && $(MAKE) $@
 
 dist: $(distdir).tar.gz
