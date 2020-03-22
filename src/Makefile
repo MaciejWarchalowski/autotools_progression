@@ -1,7 +1,9 @@
 all: jupiter
 
+CFLAGS = -g -O0
+
 jupiter: main.c
-	gcc -g -O0 -o $@ main.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ main.c
 
 clean:
 	-rm jupiter
@@ -11,11 +13,11 @@ check: all
 	@echo "*** ALL TESTS PASSED ***"
 
 install:
-	install -d $(prefix)/bin
-	install -m 0755 jupiter $(prefix)/bin
+	install -d $(DESTDIR)$(bindir)
+	install -m 0755 jupiter $(DESTDIR)$(bindir)
 
 uninstall:
-	rm $(prefix)/bin/jupiter
+	rm $(DESTDIR)$(bindir)/jupiter
 
 
 .PHONY: all clean check install uninstall
