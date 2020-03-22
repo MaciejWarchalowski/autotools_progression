@@ -19,7 +19,7 @@ $(distdir): FORCE
 	cp src/main.c $(distdir)/src
 
 FORCE:
-	rm -rf $(distdir).tar.gz > /dev/null 2>&1
-	rm -rf $(distdir) > /dev/null 2>&1
+	-rm -rf $(distdir).tar.gz > /dev/null 2>&1
+	-rm -rf $(distdir) > /dev/null 2>&1
 
 .PHONY: all clean dist FORCE
