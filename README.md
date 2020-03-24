@@ -50,3 +50,8 @@ cc  -g -O0 -o jupiter /Users/maciej.warchalowski/learning/autotools/jupiter/src/
 Hello from ./src/jupiter!
 ╭─maciej.warchalowski@maciejwarchalowski-4 ~/test_build
 ```
+
+### autoscan
+
+Running `autoscan` to generate `configure.ac` file based on system settings.
+Since we're not using Automake yet, we have to use autogen.sh script to get the wrapper for install

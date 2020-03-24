@@ -1,4 +1,5 @@
 **/configure
 **/config.log
+**/autoscan.log
 **/config.status
 autom4te.cache
