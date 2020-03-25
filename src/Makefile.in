@@ -15,10 +15,17 @@ VPATH = @srcdir@
 
 all: jupiter
 
-CFLAGS = -g -O0
+CFLAGS = @CFLAGS@
+CPPFLAGS = @CPPFLAGS@
+# Libs injected from configure.ac
+LIBS = @LIBS@
+# defs injected if configure.h present
+DEFS = @DEFS@
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
 
 jupiter: main.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $<
+	$(CC) $(CPPFLAGS) $(DEFS) $(CFLAGS) -o $@ $< -I. -I$(srcdir) -I.. $(LIBS)
 
 clean:
 	-rm jupiter
@@ -28,8 +35,8 @@ check: all
 	@echo "*** ALL TESTS PASSED ***"
 
 install:
-	install -d $(DESTDIR)$(bindir)
-	install -m 0755 jupiter $(DESTDIR)$(bindir)
+	$(INSTALL) -d $(DESTDIR)$(bindir)
+	$(INSTALL_PROGRAM) -m 0755 jupiter $(DESTDIR)$(bindir)
 
 uninstall:
 	rm $(DESTDIR)$(bindir)/jupiter
